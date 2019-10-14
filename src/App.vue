@@ -1,13 +1,32 @@
 <template>
   <div id="app">
+    <Header msg="Welcome to Your Vue.js App"/>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <div class="container text-left">
+      List API to be used <br/>
+      get user&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: https://api.github.com/users/syakirurahman<br/>
+      get user repos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: https://api.github.com/users/syakirurahman/repos<br/>
+      get repo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: https://api.github.com/repos/syakirurahman/dev-formarray-example<br/>
+      get repo readme&nbsp;&nbsp;&nbsp;: https://api.github.com/repos/syakirurahman/dev-formarray-example/contents/README.md
+    </div>
   </div>
 </template>
+<script>
+// @ is an alias to /src
+import Header from '@/components/Header.vue';
 
+export default {
+  name: 'app',
+  components: {
+    Header
+  }
+}
+
+</script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

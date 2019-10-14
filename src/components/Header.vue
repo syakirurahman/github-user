@@ -1,5 +1,8 @@
 <template>
   <div class="header">
+    <div class="container text-center">
+      Github User API
+    </div>
   </div>
 </template>
 
