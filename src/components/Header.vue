@@ -1,8 +1,10 @@
 <template>
   <div class="header">
-    <div class="container text-center">
-      Github User API
+    <div class="container my-5 text-center">
+      <h2>Github User & Repo API</h2>
+      <p>{{ msg }}</p>
     </div>
+    <br/>
   </div>
 </template>
 

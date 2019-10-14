@@ -1,25 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+  <div class="container">
+    <div style="max-width:400px;margin:50px auto;">
+      <form v-on:submit.prevent="onSubmit">
+        <input type="text" v-model="username" placeholder="Type Github Username & Enter" class="form-control" required/>
+        <br/>
+        <div class="alert alert-danger" v-show="message!=''">{{ message }}</div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Header from '@/components/Header.vue'
 import User from '../services/User'
 export default {
   name: 'home',
-  components: {
-    Header
+  data: function () {
+    return {
+      username: '',
+      message: ''
+    }
   },
-  created() {
-    alert('huha');
-    User.getUser((data) => {
-      console.log(data)
-    }, (response) => {
-        console.log(response)
-    })
+  mounted () {
+  },
+  methods: {
+    onSubmit: function () {
+      User.getUser(this.username, (data) => {
+        this.message = ''
+        this.$router.push({ name: 'user', params: { username: this.username } })
+      }, (response) => {
+        this.message = 'Username not found'
+      })
+    }
   }
 }
 </script>
